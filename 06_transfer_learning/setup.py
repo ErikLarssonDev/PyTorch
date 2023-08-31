@@ -12,11 +12,11 @@ import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 
-# Add the path to 05_going_modular to sys.path
-going_modular_path = os.path.join(parent_dir, '05_going_modular')
+# Add the path to going_modular to sys.path
+going_modular_path = os.path.join(parent_dir, 'going_modular')
 sys.path.append(going_modular_path)
 
-# Now you can import modules from 05_going_modular
+# Now you can import modules from going_modular
 import data_setup
 import engine
 import helper_functions
