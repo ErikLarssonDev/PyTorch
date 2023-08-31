@@ -1,7 +1,6 @@
 import torch
 import torchvision
 import argparse
-
 import model_builder
 
 parser = argparse.ArgumentParser()

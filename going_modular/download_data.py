@@ -40,7 +40,7 @@ amount_to_get = 0.2
 def get_subset(image_path=data_path,
                data_splits=["train", "test"],
                target_classes=["pizza", "steak", "sushi"],
-               amount=0.1,
+               amount=amount_to_get,
                seed=42):
     random.seed(42)
     label_splits = {}
@@ -107,9 +107,9 @@ shutil.make_archive(zip_file_name,
                     root_dir=target_dir)
 
 # Unzip pizza, steak, sushi data
-with zipfile.ZipFile(data_path / "pizza_steak_sushi.zip", "r") as zip_ref:
+with zipfile.ZipFile(data_path / f"pizza_steak_sushi_{str(int(amount_to_get*100))}_percent.zip", "r") as zip_ref:
     print("Unzipping pizza, steak, sushi data...") 
     zip_ref.extractall(image_path)
 
 # Remove zip file
-os.remove(data_path / "pizza_steak_sushi.zip")
+os.remove(data_path / f"pizza_steak_sushi_{str(int(amount_to_get*100))}_percent.zip")
