@@ -25,7 +25,8 @@ from pathlib import Path
 
 
 # Setup device agnostic code
-device = "cuda" if torch.cuda.is_available() else "cpu"
+# device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "mps" if torch.backends.mps.is_available() else "cpu"
 
 # Setup path to data folder
 data_path = Path("../data/")
