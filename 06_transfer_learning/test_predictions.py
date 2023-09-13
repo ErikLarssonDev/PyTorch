@@ -46,7 +46,8 @@ train_dataloader, test_dataloader, class_names = data_setup.create_dataloaders(t
                                                                                transform=auto_transforms, # perform same data transforms on our own data as the pretrained model
                                                                                batch_size=32) # set mini-batch size to 32
 # Setup device agnostic code
-device = "cuda" if torch.cuda.is_available() else "cpu"
+# device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "mps" if torch.backends.mps.is_available() else "cpu"
 
 model_0 = predict.load_model("models/06_transfer_learning.pth")
 class_names = predict.class_names

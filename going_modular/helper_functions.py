@@ -3,6 +3,7 @@ A series of helper functions.
 
 If a function gets defined once and could be used over and over, it'll go in here.
 """
+import torch
 from typing import Dict, List
 import matplotlib.pyplot as plt
 
@@ -47,3 +48,4 @@ def plot_loss_curves(results: Dict[str, List[float]]):
     plt.xlabel('Epochs')
     plt.legend()
     plt.show()
+
