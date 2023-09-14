@@ -40,7 +40,7 @@ class YOLOv1(nn.Module):
         super(YOLOv1, self).__init__()
         self.architecture = architecture_config
         self.in_channels = in_channels
-        self.darknet = self._create_conv_layers(self.architecture)
+        self.darknet = self._create_conv_layers(self.architecture) # Should probably replace with pretrained model
         self.fcs = self._create_fcs(**kwargs)
 
     def forward(self, x):
