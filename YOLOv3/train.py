@@ -9,7 +9,6 @@ import torch.optim as optim
 from model import YOLOv3
 from tqdm import tqdm
 from utils import (
-    mean_average_precision,
     cells_to_bboxes,
     get_evaluation_bboxes,
     save_checkpoint,
@@ -18,6 +17,8 @@ from utils import (
     get_loaders,
     plot_couple_examples
 )
+
+from YOLOv1Utils import get_bboxes, mean_average_precision
 from loss import YOLOv3Loss
 import warnings
 warnings.filterwarnings("ignore")
@@ -81,23 +82,27 @@ def main():
             save_checkpoint(model, optimizer)
         
         if epoch > 0 and epoch % 3 == 0:
+            print(f"Epoch: {epoch} / {config.NUM_EPOCHS}")
+            print("Test 0")
             check_class_accuracy(model, test_loader, threshold=config.CONF_THRESHOLD)
-            pred_boxes, true_boxes = get_evaluation_bboxes(
-                test_loader,
-                model,
-                iou_threshold=config.NMS_IOU_THRESH,
-                anchors=config.ANCHORS,
-                threshold=config.CONF_THRESHOLD,
-                device=config.DEVICE
-            )
-            mapval = mean_average_precision(
-                pred_boxes,
-                true_boxes,
-                iou_threshold=config.MAP_IOU_THRESH,
-                box_format="midpoint",
-                num_classes=config.NUM_CLASSES,
-            )
-            print(f"MAP: {mapval.item()}")
+            print("Test 1")
+            # pred_boxes, true_boxes = get_evaluation_bboxes( # Some error in this function
+            #     test_loader,
+            #     model,
+            #     iou_threshold=config.NMS_IOU_THRESH,
+            #     anchors=config.ANCHORS,
+            #     threshold=config.CONF_THRESHOLD,
+            #     device=config.DEVICE
+            # )
+            # print("Test 2")
+            # mapval = mean_average_precision(
+            #     pred_boxes,
+            #     true_boxes,
+            #     iou_threshold=config.MAP_IOU_THRESH,
+            #     box_format="midpoint",
+            #     num_classes=config.NUM_CLASSES,
+            # )
+            # print(f"MAP: {mapval.item()}")
             model.train()
 
 if __name__ == "__main__":
