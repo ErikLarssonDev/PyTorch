@@ -284,7 +284,7 @@ def get_evaluation_bboxes(
     anchors,
     threshold,
     box_format="midpoint",
-    device="cuda",
+    device="mps",
 ):
     # make sure model is in eval before get bboxes
     model.eval()
@@ -498,7 +498,7 @@ def get_loaders(train_csv_path, test_csv_path):
 
     return train_loader, test_loader, train_eval_loader
 
-def plot_couple_examples(model, loader, thresh, iou_thresh, anchors, device):
+def plot_couple_examples(model, loader, thresh, iou_thresh, anchors, device=config.DEVICE):
     model.eval()
     x, y = next(iter(loader))
     x = x.to(device)
