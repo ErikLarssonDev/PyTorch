@@ -498,7 +498,7 @@ def get_loaders(train_csv_path, test_csv_path):
 
     return train_loader, test_loader, train_eval_loader
 
-def plot_couple_examples(model, loader, thresh, iou_thresh, anchors, device=config.DEVICE):
+def plot_couple_examples(model, loader, thresh, iou_thresh, anchors, device="mps"):
     model.eval()
     x, y = next(iter(loader))
     x = x.to(device)
