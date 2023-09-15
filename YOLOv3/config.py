@@ -9,7 +9,7 @@ DATASET = '../PASCAL_VOC' # Dataset path ../PASCAL_VOC or ../COCO
 DEVICE = "mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu")
 # seed_everything()  # If you want deterministic behavior
 NUM_WORKERS = 0 # os.cpu_count()
-BATCH_SIZE = 32
+BATCH_SIZE = 16 # 32
 IMAGE_SIZE = 416
 NUM_CLASSES = 20
 LEARNING_RATE = 3e-4 # 1e-5
