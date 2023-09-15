@@ -147,6 +147,8 @@ logs/
 runs/
 extras/cifar-10*
 YOLOv1/archive/
+COCO/
+PASCAL_VOC/
 
 # Notebooks
 09_pytorch_model_deployment-*
