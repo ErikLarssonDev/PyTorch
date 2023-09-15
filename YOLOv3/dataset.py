@@ -11,7 +11,7 @@ from utils import (iou_width_height as iou,
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-
+# Downloaded dataset from: https://www.kaggle.com/datasets/79abcc2659dc745fddfba1864438afb2fac3fabaa5f37daa8a51e36466db101e
 class YOLODataset(Dataset):
     def __init__(
             self,
