@@ -149,6 +149,8 @@ extras/cifar-10*
 YOLOv1/archive/
 COCO/
 PASCAL_VOC/
+carvana-image-masking-challenge/
+U-NET_image_segmentation/data/
 
 # Notebooks
 09_pytorch_model_deployment-*
