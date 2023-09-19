@@ -5,13 +5,13 @@ from tqdm import tqdm
 import torch.nn as nn 
 import torch.optim as optim 
 from model import UNET 
-# from utils import (
-#     load_checkpoint,
-#     save_checkpoint,
-#     get_loaders,
-#     check_accuracy,
-#     save_predictions_as_img
-# )
+from utils import (
+    load_checkpoint,
+    save_checkpoint,
+    get_loaders,
+    check_accuracy,
+    save_predictions_as_imgs,
+)
 
 # Hyperparameters etc.
 LEARNING_RATE = 1e-4
@@ -23,7 +23,7 @@ IMAGE_HEIGHT = 160 # Originally 1280
 IMAGE_WIDTH = 240 # Originally 1918
 PIN_MEMORY = True
 LOAD_MODEL = False
-DATASET_DIR = "../carvana-image-masking-challenge"
+DATASET_DIR = "data"
 TRAIN_IMG_DIR = DATASET_DIR + "/train_images/"
 TRAIN_MASK_DIR = DATASET_DIR + "/train_masks/"
 VAL_IMG_DIR = DATASET_DIR + "/val_images/"
@@ -42,7 +42,7 @@ def train_fn(loader, model, optimizer, loss_fn, scaler):
         
         # backward
         optimizer.zero_grad()
-        scaler,scale(loss).backward()
+        scaler.scale(loss).backward()
         scaler.step(optimizer)
         scaler.update()
 
@@ -93,15 +93,28 @@ def main():
         PIN_MEMORY,
     )
 
+    if LOAD_MODEL:
+        load_checkpoint(torch.load("my_checkpoint.pth.tar"), model)
+        check_accuracy(val_loader, model, device=DEVICE)
+        
     scaler = torch.cuda.amp.GradScaler()
+
 
     for epoch in range(NUM_EPOCHS):
         train_fn(train_loader, model, optimizer, loss_fn, scaler)
 
-        # Save model 
-        # Check accuracy
-        # Print some examples to a folder
+        # Save model
+        checkpoint = {
+            "state_dict": model.state_dict(),
+            "optimizer": optimizer.state_dict(),
+        }
+        save_checkpoint(checkpoint)
 
+        # Check accuracy
+        check_accuracy(val_loader, model, device=DEVICE)
+
+        # Print some examples to a folder
+        save_predictions_as_imgs(val_loader, model, folder="saved_images/", device=DEVICE)
 
 if __name__ == "__main__":
     main() # Test and see if this solves the num_workers bug
