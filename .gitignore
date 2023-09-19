@@ -169,6 +169,7 @@ models/07_effnetb2_data_20_percent_5_epochs.pth
 models/08_*
 models/09_*
 YOLOv1/overfit.pth.tar
+U-NET_image_segmentation/my_checkpoint.pth.tar
 
 # Demos
 demos/foodvision_big/
