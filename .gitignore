@@ -170,6 +170,9 @@ models/08_*
 models/09_*
 YOLOv1/overfit.pth.tar
 U-NET_image_segmentation/my_checkpoint.pth.tar
+Ultralytics_YOLOv5/yolov5s.pt
+Ultralytics_YOLOv5/yolov5x6.pt
+
 
 # Demos
 demos/foodvision_big/
