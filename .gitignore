@@ -133,6 +133,8 @@ dmypy.json
 */.DS_Store
 extras/data/*
 kaggle_dogs_vs_cats_redux_kernels_edition/nohup.out
+kaggle_diabetic_retinopathy_detection/nohup.out
+**/nohup.out
 
 # Data files
 data/10_whole_foods*
