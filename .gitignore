@@ -153,6 +153,8 @@ carvana-image-masking-challenge/
 U-NET_image_segmentation/data/
 U-NET_image_segmentation/saved_images/
 titanic/
+dogs-vs-cats-redux-kernels-edition/
+kaggle_dogs_vs_cats_redux_kernels_edition/data_features/
 
 # Submission files
 kaggle_titanic/submission.csv
