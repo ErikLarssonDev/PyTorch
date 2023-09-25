@@ -12,11 +12,11 @@ CHECKPOINT_FILE = "b3.pth.tar"
 PIN_MEMORY = True
 SAVE_MODEL = True 
 LOAD_MODEL = True 
-IMAGES_FOLDER = "../train/images_resized_650/" # TODO: Check if this needs changing when the dataset has downloaded
-PATH_TO_CSV_TRAIN = "../train/train_labels.csv"
-PATH_TO_CSV_VAL = "../train/val_labels.csv"
-IMAGES_FOLDER_TEST = "../test/images_resized_650/"
-PATH_TO_CSV_TEST = "../train/test_labels.csv"
+IMAGES_FOLDER = "../diabetic-retinopathy-detection/resized_train_650/" 
+PATH_TO_CSV_TRAIN = '../diabetic-retinopathy-detection/train_labels.csv'
+PATH_TO_CSV_VAL = '../diabetic-retinopathy-detection/val_labels.csv'
+IMAGES_FOLDER_TEST = "../diabetic-retinopathy-detection/resized_test_650/"
+PATH_TO_CSV_TEST = "../diabetic-retinopathy-detection/test_labels.csv"
 
 # Data augmentation for images
 train_transforms = A.Compose(

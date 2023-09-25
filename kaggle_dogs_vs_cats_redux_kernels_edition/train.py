@@ -35,12 +35,12 @@ def train_one_epoch(loader, model, loss_fn, optimizer, scaler):
 
     for batch_idx, (data, targets) in enumerate(loop):
         data = data.to(config.DEVICE)
-        targets = targets.to(config.DEVICE)
-        
+        targets = targets.to(config.DEVICE).unsqueeze(1).float()
+
         with torch.cuda.amp.autocast():
             scores = model(data)
             loss = loss_fn(scores, targets)
-        
+
         optimizer.zero_grad()
         scaler.scale(loss).backward()
         scaler.step(optimizer)
@@ -76,7 +76,7 @@ def main():
     if config.LOAD_MODEL and config.CHECKPOINT_FILE in os.listdir():
         load_checkpoint(torch.load(config.CHECKPOINT_FILE), model)
 
-    for epoch in range(config.DEVICE):
+    for epoch in range(config.NUM_EPOCHS):
         train_one_epoch(train_loader, model, loss_fn, optimizer, scaler)
         check_accuracy(train_loader, model, loss_fn)
     
