@@ -38,7 +38,7 @@ if __name__ == "__main__":
     """
     dataset = DRDataset(
         images_folder=config.IMAGES_FOLDER,
-        path_to_csv=config.PATH_TO_CSV,
+        path_to_csv=config.PATH_TO_CSV_TRAIN,
         transform=config.val_transforms,
     )
     loader = DataLoader(
