@@ -2,10 +2,10 @@ from PIL import Image
 import os
 
 # Input folder containing your images
-input_folder = '../diabetic-retinopathy-detection/train'
+input_folder = '../diabetic-retinopathy-detection/test'
 
 # Output folder where resized images will be saved
-output_folder = '../diabetic-retinopathy-detection/resized_train_650'
+output_folder = '../diabetic-retinopathy-detection/resized_test_650'
 
 # Desired resolution
 new_width = 650

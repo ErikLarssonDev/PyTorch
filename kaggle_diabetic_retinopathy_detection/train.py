@@ -55,7 +55,7 @@ def main():
     )
     test_ds = DRDataset(
         images_folder=config.IMAGES_FOLDER_TEST,
-        path_to_csv=config.PATH_TO_CSV_TEST,
+        path_to_csv=config.PATH_TO_CSV_TRAIN, # These labels will not be used
         transform=config.val_transforms,
         train=False
     )
