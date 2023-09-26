@@ -46,7 +46,7 @@ if __name__ == "__main__":
     )
 
     for x, label, file in tqdm(loader):
-        print(x.shape) # torch.size([32, 3, 120, 120])
-        print(label.shape) # torch.size([32])
+        # print(x.shape) # torch.size([32, 3, 120, 120])
+        # print(label.shape) # torch.size([32])
         import sys 
         sys.exit()
