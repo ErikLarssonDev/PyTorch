@@ -185,6 +185,7 @@ U-NET_image_segmentation/my_checkpoint.pth.tar
 Ultralytics_YOLOv5/yolov5s.pt
 Ultralytics_YOLOv5/yolov5x6.pt
 segment-anything/sam_vit_h_4b8939.pth
+kaggle_diabetic_retinopathy_detection/b3.pth.tar
 
 # Demos
 demos/foodvision_big/
