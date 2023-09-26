@@ -161,6 +161,9 @@ kaggle_dogs_vs_cats_redux_kernels_edition/data_features/
 diabetic-retinopathy-detection/
 santander-customer-transaction-prediction/
 facial-keypoints-detection/
+kaggle_santander_customer_transaction_prediction/new_test.csv
+kaggle_santander_customer_transaction_prediction/new_train.csv
+kaggle_santander_customer_transaction_prediction/submission.csv
 
 # Submission files
 kaggle_titanic/submission.csv
