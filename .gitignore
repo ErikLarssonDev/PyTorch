@@ -165,6 +165,7 @@ facial-keypoints-detection/
 # Submission files
 kaggle_titanic/submission.csv
 kaggle_dogs_vs_cats_redux_kernels_edition/submissions/
+kaggle_diabetic_retinopathy_detection/submission.csv
 
 # Notebooks
 09_pytorch_model_deployment-*
