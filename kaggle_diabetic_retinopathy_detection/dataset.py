@@ -15,11 +15,8 @@ class DRDataset(Dataset):
         self.transform = transform 
         self.train = train 
 
-<<<<<<< HEAD
+
     def __len__(self):
-=======
-    def __len__self(self):
->>>>>>> 3219b8b9bd1c47e1b098704dd11c4893298ffdaf
         return self.data.shape[0] if self.train else len(self.image_files)
 
     def __getitem__(self, index):
